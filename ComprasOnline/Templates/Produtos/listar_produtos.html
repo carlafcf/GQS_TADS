@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block subtitulo %}
+Listar produtos
+{% endblock %}
+
+{% block conteudo %}
+
+    {% for produto in lista_produtos  %}
+        {{ produto }}
+        <a class="btn btn-success" href="">Detalhes</a>
+        <br> <br>
+    {% endfor %}
+
+{% endblock %}
+
+{% block rodape %}
+Nosso sistema de compras online
+{% endblock %}
