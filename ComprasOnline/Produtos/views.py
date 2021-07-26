@@ -22,7 +22,7 @@ def listar_produtos_falta(request):
 
     return render(request, 'Produtos/listar_produtos.html', informacoes)
 
-@login_required
+# @login_required
 def criar_produto(request):
     if (request.method == 'POST'):
         form = ProdutoForm(request.POST)
@@ -56,3 +56,10 @@ def analisar_desconto_maximo():
             desconto_maximo = valor_desconto
     
     return desconto_maximo
+
+def detalhes_produto(request, pk):
+    produto = Produto.objects.get(pk=pk)
+    informacoes = {
+        'produto': produto
+    }
+    return render(request, 'Produtos/detalhes_produto.html', informacoes)

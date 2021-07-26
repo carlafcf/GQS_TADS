@@ -6,10 +6,11 @@ Listar produtos
 
 {% block conteudo %}
 
+<strong>{{lista_produtos|length}} produtos</strong>
     {% for produto in lista_produtos  %}
-        {{ produto }}
-        <a class="btn btn-success" href="">Detalhes</a>
-        <br> <br>
+        <p id="id_{{produto.nome}}_{{produto.fornecedor}}">{{produto}} 
+            <a id="id_button_{{produto.pk}}" class="btn btn-success" href="{% url 'produtos:detalhes_produto' pk=produto.pk %}">Detalhes</a>
+        </p>
     {% endfor %}
 
 {% endblock %}
